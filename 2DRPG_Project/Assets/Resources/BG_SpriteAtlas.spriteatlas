@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BG_SpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 883c52d242cbdf24683d49ac41e5613f, type: 3}
+    - {fileID: 102900000, guid: 3f45dd2f1705e5047b5df488df75ae8f, type: 3}
+    totalSpriteSurfaceArea: 85126
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 6a6df3012420d314f867aa8646ebdc96, type: 3}
+  - {fileID: 21300000, guid: f727ad81381dd1748853a4f60a043634, type: 3}
+  - {fileID: 21300000, guid: 92919ef1077c7064b8cc8f9c5e1de6c3, type: 3}
+  - {fileID: 21300000, guid: 1a6743522f9e26b4baa2dbf2ca028896, type: 3}
+  - {fileID: 21300000, guid: 767184729d1fcc64da3a407cc21903b4, type: 3}
+  - {fileID: 21300000, guid: 825501e299b222f48b64256f7bdcfd81, type: 3}
+  - {fileID: 21300000, guid: eec9f6030206d9949ba3bee7e2fab910, type: 3}
+  - {fileID: 21300000, guid: 4d487c53c70ae59409915a863423941a, type: 3}
+  - {fileID: 21300000, guid: a0ee8614e70f8834894ac00d8c716a0a, type: 3}
+  - {fileID: 21300000, guid: f1941d7440be4c2419f36434489fb9fc, type: 3}
+  - {fileID: 21300000, guid: 141448a49b4764147b31761db2578cc3, type: 3}
+  - {fileID: 21300000, guid: 00cef5d41105387468a3257b894b764f, type: 3}
+  - {fileID: 21300000, guid: fe195386c0e06744cb8e7fed3a41d72b, type: 3}
+  - {fileID: 21300000, guid: 0529d1692f198c441882a73e5e37ea3a, type: 3}
+  - {fileID: 21300000, guid: cfbe929b3fcf577418c607ded5c796e9, type: 3}
+  - {fileID: 21300000, guid: 70e1249bd4e667647afd4ba21953977c, type: 3}
+  - {fileID: 21300000, guid: afd27bcb073e13a4094cc32eacb5e125, type: 3}
+  - {fileID: 21300000, guid: 69f570cc380a51745b71c34633445925, type: 3}
+  - {fileID: 21300000, guid: 8e1e753e5d03f3446a4767bac15b22f1, type: 3}
+  - {fileID: 21300000, guid: feb21e6f3a5cc704dbde0f6ff097d3b4, type: 3}
+  - {fileID: 21300000, guid: f1ea2e6fc78e6c9469d5df72fcba5722, type: 3}
+  - {fileID: 21300000, guid: 6c79f1af21c1da848896d93f15b1d57e, type: 3}
+  - {fileID: 21300000, guid: 465500cf73427a04f94db8730bc20747, type: 3}
+  - {fileID: 21300000, guid: 0ef025efbec09fd48a6a120184108757, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - cloud8
+  - chain
+  - bottle_4
+  - cloud3
+  - rope
+  - shelf_bottle
+  - bottle_2
+  - theMachine
+  - shelf_glass
+  - potion
+  - chain_2
+  - leaves
+  - cloud7
+  - cloud1
+  - potion2
+  - cloud4
+  - cloud5
+  - bottle_3
+  - cloud6
+  - table
+  - cloud2
+  - grass
+  - candle
+  - bottle
+  m_RenderDataMap: {}
+  m_Tag: BG_SpriteAtlas
+  m_IsVariant: 0

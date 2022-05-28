@@ -1,0 +1,132 @@
+Index,Parts,DataName,Attack,Critical,Accuracy,Defense,EvationRate,Hp,Mp,HpCure,MpCure,ItemName,Explaination,ResourcePath
+CC01,Cloth,Cloth1,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC02,Cloth,Cloth2,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC03,Cloth,Cloth3,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC04,Cloth,Cloth4,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC05,Cloth,Cloth5,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC06,Cloth,Cloth6,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC07,Cloth,Cloth7,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC08,Cloth,Cloth8,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC09,Cloth,Cloth9,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC10,Cloth,Cloth10,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC11,Cloth,Cloth11,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC12,Cloth,Cloth12,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC13,Cloth,Cloth13,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC14,Cloth,Cloth14,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC15,Cloth,Cloth15,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC16,Cloth,Cloth16,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC17,Cloth,Cloth17,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC18,Cloth,Cloth18,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC19,Cloth,Cloth19,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC20,Cloth,Cloth20,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC21,Cloth,Cloth21,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC22,Cloth,Cloth22,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CC23,Cloth,Cloth23,0,0,0,0,0,0,0,2,2,¿≠ø ,¿≠ø ,Item_Image_Sprite/Cloth/Cloths
+CP01,PantsLeg,Leg1,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP02,PantsLeg,Leg2,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP03,PantsLeg,Leg3,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP04,PantsLeg,Leg4,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP05,PantsLeg,Leg5,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP06,PantsLeg,Leg6,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP07,PantsLeg,Leg7,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP08,PantsLeg,Leg8,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP09,PantsLeg,Leg9,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP10,PantsLeg,Leg10,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP11,PantsLeg,Leg11,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP12,PantsLeg,Leg12,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP13,PantsLeg,Leg13,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP14,PantsLeg,Leg14,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP15,PantsLeg,Leg15,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CP16,PantsLeg,Leg16,0,0,0,0,0,0,0,2,2,πŸ¡ˆ,πŸ¡ˆ,Item_Image_Sprite/Legs
+CH01,Helmet,ClothHelmetA,1,1,1,4,0,0,0,1,1,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH02,Helmet,ClothHelmetB,1,1,1,4,0,0,0,1,1,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH03,Helmet,ClothHelmetC,1,1,1,4,0,0,0,1,1,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH04,Helmet,ClothHelmetD,1,1,1,4,0,0,0,1,1,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH05,Helmet,MythrilHelmet1,2,2,2,7,0,0,0,1,1,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH06,Helmet,MythrilHelmet2,3,3,3,9,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH07,Helmet,MythrilHelmet3,4,4,4,10,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH08,Helmet,MythrilHelmet4,5,5,5,11,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH09,Helmet,MythrilHelmet5,6,6,6,12,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH10,Helmet,SteelHelmet1,2,2,2,7,0,0,0,1,1,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH11,Helmet,SteelHelmetA2,4,4,4,10,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH12,Helmet,SteelHelmetA3,6,6,6,12,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH13,Helmet,LegendHelmet,9,9,9,15,0,0,0,5,5,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH14,Helmet,SteelHelmetB2,4,4,4,10,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH15,Helmet,SteelHelmetB3,5,5,5,11,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH16,Helmet,SteelHelmetB4,6,6,6,12,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH17,Helmet,WoodHelmet1,1,1,1,5,0,0,0,1,1,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH18,Helmet,WoodHelmet2,2,2,2,7,0,0,0,1,1,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CH19,Helmet,WoodHelmet3,3,3,3,9,0,0,0,2,2,≈ı±∏,≈ı±∏,Item_Image_Sprite/Helmet
+CA01,Armor,WoodArmor_1,1,1,1,5,2,5,5,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA02,Armor,WoodArmor_2,1,1,1,6,2,6,6,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA03,Armor,Armor_1,2,2,2,7,3,7,7,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA04,Armor,Armor_2,3,3,3,8,3,8,8,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA05,Armor,Armor_3,4,4,4,9,3,9,9,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA06,Armor,Armor_4,5,5,5,10,4,10,10,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA07,Armor,Armor_5,6,6,6,11,4,11,11,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA08,Armor,Armor_6,7,7,7,12,4,12,12,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA09,Armor,LegendArmor,9,9,9,15,5,15,15,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA10,Armor,MythrilArmor_1,4,4,4,9,3,9,9,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA11,Armor,MythrilArmor_2,5,5,5,10,4,10,10,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA12,Armor,MythrilArmor_3,6,6,6,11,4,11,11,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA13,Armor,MythrilArmor_4,7,7,7,12,4,12,12,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CA14,Armor,Armor,1,1,1,6,2,6,6,0,0,∞©ø ,∞©ø ,Item_Image_Sprite/Armor
+CS01,Shield,WoodShield1,1,1,1,5,5,5,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS02,Shield,WoodShield2,1,1,1,5,5,5,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS03,Shield,WoodShield3,1,1,1,5,5,5,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS04,Shield,WoodShield01,2,2,2,8,7,7,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS05,Shield,WoodShield03,2,2,2,8,7,7,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS06,Shield,WoodShieldOld,1,1,1,3,4,4,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS07,Shield,SteelShield,2,2,2,8,7,7,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS08,Shield,SteelShield01,3,3,3,9,9,9,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS09,Shield,SteeldShield02,3,3,3,9,9,9,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CS10,Shield,LegendShield,5,5,5,15,15,15,0,0,0,πÊ∆–,πÊ∆–,Item_Image_Sprite/Shield
+CAB01,Belt,BeltAccessory1,3,3,3,3,1,1,1,2,2,«„∏Æ∂Ï,«„∏Æ∂Ï,Item_Image_Sprite/Accessory
+CAB02,Belt,BeltAccessory2,3,3,3,3,1,1,1,2,2,«„∏Æ∂Ï,«„∏Æ∂Ï,Item_Image_Sprite/Accessory
+CAB03,Belt,BeltAccessory3,3,3,3,3,1,1,1,2,2,«„∏Æ∂Ï,«„∏Æ∂Ï,Item_Image_Sprite/Accessory
+CAC01,Cross,CrossAccessory1,3,3,3,3,1,1,1,2,2,≈©∑ŒΩ∫,≈©∑ŒΩ∫,Item_Image_Sprite/Accessory
+CAC02,Cross,CrossAccessory2,3,3,3,3,1,1,1,2,2,≈©∑ŒΩ∫,≈©∑ŒΩ∫,Item_Image_Sprite/Accessory
+CAC03,Cross,CrossAccessory3,3,3,3,3,1,1,1,2,2,≈©∑ŒΩ∫,≈©∑ŒΩ∫,Item_Image_Sprite/Accessory
+CAN01,Necklace,Necklace_1,2,2,2,2,1,1,1,2,2,∏Ò∞…¿Ã,∏Ò∞…¿Ã,Item_Image_Sprite/Jewelry
+CAN02,Necklace,Necklace_2,4,4,4,4,1,1,1,4,4,∏Ò∞…¿Ã,∏Ò∞…¿Ã,Item_Image_Sprite/Jewelry
+CAN03,Necklace,Necklace_3,5,1,1,1,1,1,1,1,5,∏Ò∞…¿Ã,∏Ò∞…¿Ã,Item_Image_Sprite/Jewelry
+CAN04,Necklace,Necklace_4,1,1,1,5,1,1,1,5,1,∏Ò∞…¿Ã,∏Ò∞…¿Ã,Item_Image_Sprite/Jewelry
+CAR01,Ring,Ring_1,2,2,2,2,1,1,1,2,2,π›¡ˆ,π›¡ˆ,Item_Image_Sprite/Jewelry
+CAR02,Ring,Ring_2,2,2,2,2,1,1,1,2,2,π›¡ˆ,π›¡ˆ,Item_Image_Sprite/Jewelry
+CAR03,Ring,Ring_3,3,3,3,3,1,1,1,3,3,π›¡ˆ,π›¡ˆ,Item_Image_Sprite/Jewelry
+CAR04,Ring,Ring_4,3,3,3,3,1,1,1,3,3,π›¡ˆ,π›¡ˆ,Item_Image_Sprite/Jewelry
+CB01,Back,Back_1,2,2,2,2,1,1,1,2,2,∏¡∂«,∏¡∂«,Item_Image_Sprite/Back
+CB02,Back,Back_2,2,2,2,2,1,1,1,2,2,∏¡∂«,∏¡∂«,Item_Image_Sprite/Back
+CB03,Back,Back_3,2,2,2,2,1,1,1,2,2,∏¡∂«,∏¡∂«,Item_Image_Sprite/Back
+CB04,Back,Back_4,2,2,2,2,1,1,1,2,2,∏¡∂«,∏¡∂«,Item_Image_Sprite/Back
+CB05,Back,Back_5,2,2,2,2,1,1,1,2,2,∏¡∂«,∏¡∂«,Item_Image_Sprite/Back
+CWS01,Weapon,Short1,50,10,70,0,0,0,0,0,0,∞À,∞À,Item_Image_Sprite/Weapons/Short
+CWS02,Weapon,Short2,40,20,80,0,0,0,0,0,0,∞À,∞À,Item_Image_Sprite/Weapons/Short
+CWS03,Weapon,Short3,70,30,100,0,0,0,0,0,0,∞À,∞À,Item_Image_Sprite/Weapons/Short
+CWS04,Weapon,Short4,40,20,80,0,0,0,0,0,0,∞À,∞À,Item_Image_Sprite/Weapons/Short
+CWM01,Weapon,Middle1,60,20,80,0,0,0,0,0,0,¿Â∞À,¿Â∞À,Item_Image_Sprite/Weapons/Middle
+CWM02,Weapon,Middle2,100,30,100,0,0,0,0,0,0,¿Â∞À,¿Â∞À,Item_Image_Sprite/Weapons/Middle
+CWM03,Weapon,Middle3,60,30,80,0,0,0,0,0,0,¿Â∞À,¿Â∞À,Item_Image_Sprite/Weapons/Middle
+CWM04,Weapon,Middle4,55,20,90,0,0,0,0,0,0,¿Â∞À,¿Â∞À,Item_Image_Sprite/Weapons/Middle
+CWM05,Weapon,Middle5,65,25,90,0,0,0,0,0,0,¿Â∞À,¿Â∞À,Item_Image_Sprite/Weapons/Middle
+CWM06,Weapon,Middle6,65,25,95,0,0,0,0,0,0,¿Â∞À,¿Â∞À,Item_Image_Sprite/Weapons/Middle
+CWM07,Weapon,Middle7,40,10,70,0,0,0,0,0,0,¿Â∞À,¿Â∞À,Item_Image_Sprite/Weapons/Middle
+CWL01,Weapon,Long1,80,40,90,0,0,0,0,0,0,√¢,√¢,Item_Image_Sprite/Weapons/Long
+CWL02,Weapon,Long2,80,40,90,0,0,0,0,0,0,√¢,√¢,Item_Image_Sprite/Weapons/Long
+CWL03,Weapon,Long3,70,20,85,0,0,0,0,0,0,√¢,√¢,Item_Image_Sprite/Weapons/Long
+CWL04,Weapon,Long4,65,10,80,0,0,0,0,0,0,√¢,√¢,Item_Image_Sprite/Weapons/Long
+CWL05,Weapon,Long5,70,20,90,0,0,0,0,0,0,√¢,√¢,Item_Image_Sprite/Weapons/Long
+CWW01,Weapon,Wand1,5,30,70,0,0,0,0,0,0,øœµÂ,øœµÂ,Item_Image_Sprite/Weapons/Wand
+CWW02,Weapon,Wand2,5,40,90,0,0,0,0,0,0,øœµÂ,øœµÂ,Item_Image_Sprite/Weapons/Wand
+CWW03,Weapon,Wand3,5,35,80,0,0,0,0,0,0,øœµÂ,øœµÂ,Item_Image_Sprite/Weapons/Wand
+CWA01,Weapon,Axe1,60,20,60,0,0,0,0,0,0,µµ≥¢,µµ≥¢,Item_Image_Sprite/Weapons/Axe
+CWA02,Weapon,Axe2,65,30,65,0,0,0,0,0,0,µµ≥¢,µµ≥¢,Item_Image_Sprite/Weapons/Axe
+CWA03,Weapon,Axe3,70,30,65,0,0,0,0,0,0,µµ≥¢,µµ≥¢,Item_Image_Sprite/Weapons/Axe
+CWtA01,Weapon,TwoSideAxe1,75,40,70,0,0,0,0,0,0,æÁ≥Øµµ≥¢,æÁ≥Øµµ≥¢,Item_Image_Sprite/Weapons/TwoSideAxe
+CWtA02,Weapon,TwoSideAxe2,80,40,70,0,0,0,0,0,0,æÁ≥Øµµ≥¢,æÁ≥Øµµ≥¢,Item_Image_Sprite/Weapons/TwoSideAxe
+CWK01,Weapon,Knife1,10,80,100,0,0,0,0,0,0,¥‹∞À,¥‹∞À,Item_Image_Sprite/Weapons/Dagger
+CWK02,Weapon,Knife2,10,80,100,0,0,0,0,0,0,¥‹∞À,¥‹∞À,Item_Image_Sprite/Weapons/Dagger
+CWK03,Weapon,Knife3,10,90,100,0,0,0,0,0,0,¥‹∞À,¥‹∞À,Item_Image_Sprite/Weapons/Dagger
+CWK04,Weapon,Knife4,10,90,100,0,0,0,0,0,0,¥‹∞À,¥‹∞À,Item_Image_Sprite/Weapons/Dagger
+CWLr01,Weapon,Lancer1,70,80,100,0,0,0,0,0,0,∑£Ω∫,∑£Ω∫,Item_Image_Sprite/Weapons/Lancer
+CWLr02,Weapon,Lancer2,70,80,100,0,0,0,0,0,0,∑£Ω∫,∑£Ω∫,Item_Image_Sprite/Weapons/Lancer
