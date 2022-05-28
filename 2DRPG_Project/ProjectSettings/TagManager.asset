@@ -3,7 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Home
+  - Ground
+  - Enemy
+  - Fallowing
+  - StageSellect
+  - Pant
+  - book
+  - NPC_Stage
+  - Armor
+  - Item
+  - Weapon
+  - NPC_Consum
+  - NPC_Equip
+  - NPC_Skill
+  - NPC_InventoryStore
+  - ItemSpriteElse
+  - Cloth
+  - Sitting
   layers:
   - Default
   - TransparentFX
@@ -11,9 +29,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - miniCam
+  - Player
+  - Enemy
   - 
   - 
   - 

@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/1. Scenes/1. Main.unity
+    guid: 077c8c93ef1b92342b0e41878b7ae1ca
+  - enabled: 1
+    path: Assets/1. Scenes/2. Lobby.unity
+    guid: 814a22c42962da1428e95ff7c599fdf6
+  - enabled: 1
+    path: Assets/1. Scenes/3. NewAvator.unity
+    guid: aeaa78ebbffa94849a84aea18eb6d25e
+  - enabled: 1
+    path: Assets/1. Scenes/4. Home_Zone.unity
+    guid: afec89b7a36359246a61115ea9f62430
+  - enabled: 1
+    path: Assets/1. Scenes/5. Stage1.unity
+    guid: 21fac82d5a8b0c64ab533386b5b3784a
   m_configObjects: {}
