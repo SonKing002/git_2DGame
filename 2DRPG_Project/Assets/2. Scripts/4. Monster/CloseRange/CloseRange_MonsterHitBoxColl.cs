@@ -4,7 +4,7 @@ using UnityEngine;
 using Main;
 namespace Main
 {
-    public class CloseRange_MonsterColl : MonsterColl
+    public class CloseRange_MonsterHitBoxColl : MonsterHitBoxColl
     {
 
     }//class

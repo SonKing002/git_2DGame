@@ -25,9 +25,6 @@ namespace Main
                     playerMove.isGround = true; // 땅에 있는가 
                     break;
 
-                case "Enemy":
-                    print("range 범위안에 왔음");
-                    break;
             }
         }
 
@@ -40,9 +37,6 @@ namespace Main
                 case "Ground":
                     playerMove.isGround = false;// 공중에 있는가
                     print("공중");
-
-                    break;
-                case "Enemy":
                     break;
             }
         }//trigger

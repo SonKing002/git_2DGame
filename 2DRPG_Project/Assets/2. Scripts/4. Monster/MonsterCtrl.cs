@@ -26,7 +26,7 @@ namespace Main
         public Slider hpBar;
         public Animator anim;
         public CapsuleCollider2D collider2d;
-        public MonsterColl monsterColl; //히트박스 체크용
+        public MonsterHitBoxColl monsterColl; //히트박스 체크용
         public Transform hitbox_Direction;// 방향전환시 히트박스 위치 수정용
 
         public Animator emotion;
@@ -54,6 +54,7 @@ namespace Main
         public Transform player;
 
         //공격
+        float tempSpeed, maxTempSpeed;
         public float attackTimer;//공격주기
         public float temp_TimeCheck; //임시 시간검사용
 
@@ -79,12 +80,13 @@ namespace Main
         [SerializeField] float horizontalView_Angle        = 0f;
         [SerializeField] float viewRadius                  = 1f;
 
-        [Range(-180f, 180f)]//로테이션 없이 탐지 반향이 몬스터 방향과 일치하지 않아야 할때,
+        [Range(-180f, 180f)]//로테이션 없이 탐지 방향이 몬스터 방향과 일치하지 않아야 할때,
         [SerializeField] float z_viewRotate                = 0f;
 
         [SerializeField] LayerMask targetMask;
         [SerializeField] LayerMask obstacleMask;
 
+        //target 검색에 유리한 자료형으로 수정
         public Dictionary<Collider2D, string> hitedTargetContainer2 = new Dictionary<Collider2D, string>();
         //public List<Collider2D> hitedTargetContainer = new List<Collider2D>();
 
@@ -97,7 +99,7 @@ namespace Main
 
         void Start()
         {
-            /*
+            /* public으로 inspector에서 직접 연결하는 것이 덜 무겁다
             //할당
             //rig = GetComponent<Rigidbody2D>(); //움직임 제어
             //sr = GetComponent<SpriteRenderer>(); //색 알파값 서서히 변하게 연출, 좌우 반전 간편하게 사용
@@ -301,13 +303,12 @@ namespace Main
                     case "Ground"://땅이라면 유지
                         isChanged = false;
                         break;
-                    case "player"://
+                    case "Player"://플레이어도 유지 
+                        //하이어라키 캐릭터 오브젝트 중 : TalkingRange에 걸림 (해당 Tag : Player 설정해야 반응)
+                        isChanged = false;
 
                         break;
                     default:// 이외의 물체, 방향 전환
-
-                        //추격상태에서는 계속 추격하게 놔두고
-
                         //어떤 걸림돌이 있다면 순찰상태에서는
                         if (state == StateMachine.Patron)
                         {
@@ -662,6 +663,14 @@ namespace Main
         {
             //공격에 따른 히트박스collider 켜주기
             monsterColl.hitBox.enabled = true;
+
+            //속도 저장
+            tempSpeed = speed;
+            maxTempSpeed = maxSpeed;
+
+            //0 공격시에는 움직임 x 
+            speed = 0;
+            maxSpeed = 0;
         }
 
         //공격 끝날시, 애니메이션에 호출할 이벤트 함수
@@ -669,6 +678,10 @@ namespace Main
         {
             //공격에 따른 히트박스collider 꺼주기
             monsterColl.hitBox.enabled = false;
+
+            //저장한 속도 다시 대입
+            speed = tempSpeed;
+            maxSpeed = maxTempSpeed;
         }
 
         //에니메이션 이벤트함수에서 호출

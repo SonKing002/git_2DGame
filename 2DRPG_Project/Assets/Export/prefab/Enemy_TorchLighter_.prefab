@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -733,14 +733,13 @@ MonoBehaviour:
   debugMode: 1
   horizontalView_Angle: 150
   viewRadius: 6
-  z_viewRotate: 49
+  z_viewRotate: 36
   targetMask:
     serializedVersion: 2
     m_Bits: 128
   obstacleMask:
     serializedVersion: 2
     m_Bits: 512
-  hitedTargetContainer: []
 --- !u!70 &8659570678144070380
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

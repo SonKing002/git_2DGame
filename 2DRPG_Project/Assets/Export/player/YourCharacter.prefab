@@ -339,9 +339,9 @@ GameObject:
   - component: {fileID: 666126054498483057}
   - component: {fileID: 666126054498483063}
   - component: {fileID: 666126054498483062}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TalkingRange_Trigger
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4105,7 +4105,7 @@ GameObject:
   - component: {fileID: 666126056357581254}
   - component: {fileID: 666126056357581249}
   - component: {fileID: 666126056357581255}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Base_27_Left_Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4517,21 +4517,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1341667607}
     - target: {fileID: 3839647292613014301, guid: e5018882fd7d4ca428efe13072c87fa7, type: 3}
-      propertyPath: z_viewRotate
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839647292613014301, guid: e5018882fd7d4ca428efe13072c87fa7, type: 3}
       propertyPath: player_Attack_Defend
       value: 
       objectReference: {fileID: 1437527947}
-    - target: {fileID: 3839647292613014301, guid: e5018882fd7d4ca428efe13072c87fa7, type: 3}
-      propertyPath: hitedTargetContainer.Array.data[0]
-      value: 
-      objectReference: {fileID: 1056056905}
-    - target: {fileID: 3839647292613014301, guid: e5018882fd7d4ca428efe13072c87fa7, type: 3}
-      propertyPath: hitedTargetContainer.Array.data[1]
-      value: 
-      objectReference: {fileID: 1573831472}
     - target: {fileID: 7574879707995670037, guid: e5018882fd7d4ca428efe13072c87fa7, type: 3}
       propertyPath: p_PlayerDamaged
       value: 
@@ -40231,11 +40219,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054644973}
   m_CullTransparentMesh: 1
---- !u!70 &1056056905 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 666126056454646456, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
-  m_PrefabInstance: {fileID: 1437527945}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1057927293
 GameObject:
   m_ObjectHideFlags: 0
@@ -54898,10 +54881,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 666126054498483056, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 666126054498483062, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
       propertyPath: stage
       value: 
@@ -54926,14 +54905,6 @@ PrefabInstance:
       propertyPath: text_SelectViewHead
       value: 
       objectReference: {fileID: 1549978689}
-    - target: {fileID: 666126054810857467, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 666126056357581251, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 666126056454646448, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -58625,11 +58596,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564930279}
   m_CullTransparentMesh: 1
---- !u!61 &1573831472 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 666126054498483063, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
-  m_PrefabInstance: {fileID: 1437527945}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1576384959
 GameObject:
   m_ObjectHideFlags: 0
