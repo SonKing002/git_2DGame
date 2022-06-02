@@ -592,6 +592,7 @@ GameObject:
   - component: {fileID: 8659570678144070354}
   - component: {fileID: 8659570678144070355}
   - component: {fileID: 8659570678144070382}
+  - component: {fileID: 5012494843573456164}
   - component: {fileID: 3839647292613014301}
   - component: {fileID: 8659570678144070380}
   - component: {fileID: 8659570678144070381}
@@ -690,6 +691,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5012494843573456164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659570678144070352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1d678254789e84fa0d779dec9e49fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterCtrl: {fileID: 3839647292613014301}
 --- !u!114 &3839647292613014301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +736,7 @@ MonoBehaviour:
   player_Attack_Defend: {fileID: 0}
   destination: 0
   player: {fileID: 0}
+  isAttack: 0
   attackTimer: 0
   temp_TimeCheck: 0
   attack_Distance: 0.9

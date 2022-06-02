@@ -54,6 +54,7 @@ namespace Main
         public Transform player;
 
         //공격
+        public bool isAttack; //공격범위 
         float tempSpeed, maxTempSpeed;
         public float attackTimer;//공격주기
         public float temp_TimeCheck; //임시 시간검사용
@@ -599,7 +600,7 @@ namespace Main
 
         void Attack()
         {
-            //체력이 남아있을 때 
+            //체력이 남아있을 때
             if (player_Attack_Defend.hp > 0)
             {
                 if (distance < attack_Distance)
@@ -657,10 +658,12 @@ namespace Main
             }
         }
 
-
         //공격시작시, 애니메이션에 호출할 이벤트 함수
         public void AttackStart()
         {
+            //공격중 다시 공격 못하도록, (콜라이더에서 캐릭터랑 닿으면 + !isAttack 일때) 공격
+            isAttack = true;
+
             //공격에 따른 히트박스collider 켜주기
             monsterColl.hitBox.enabled = true;
 
@@ -676,6 +679,8 @@ namespace Main
         //공격 끝날시, 애니메이션에 호출할 이벤트 함수
         public void AttackEnd()
         {
+            isAttack = false;
+
             //공격에 따른 히트박스collider 꺼주기
             monsterColl.hitBox.enabled = false;
 
