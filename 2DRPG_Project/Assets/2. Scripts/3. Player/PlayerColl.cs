@@ -23,6 +23,14 @@ namespace Main
             {
                 case "Ground":
                     playerMove.isGround = true; // 땅에 있는가 
+
+                    //베이스 땅이 아닐 때
+                    if (collision.gameObject.name != "BGround")
+                    {
+                        //하단 점프 조건 성립
+                        playerMove.isGround_ToAble_UnderJump = true;
+                    }
+
                     break;
 
             }
@@ -36,6 +44,8 @@ namespace Main
             {
                 case "Ground":
                     playerMove.isGround = false;// 공중에 있는가
+                    playerMove.isGround_ToAble_UnderJump = false; //발판에서 벗어나면 false
+
                     print("공중");
                     break;
             }

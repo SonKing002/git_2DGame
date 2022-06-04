@@ -584,6 +584,9 @@ TextureImporter:
   - first:
       213: 3819963029724104715
     second: TX Tileset Ground_156
+  - first:
+      213: 4242668166556782071
+    second: TX Tileset Ground_157
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -4165,6 +4168,27 @@ TextureImporter:
       bones: []
       spriteID: b0884d1f22c330530800000000000000
       internalID: 3819963029724104715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Tileset Ground_157
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 410
+        width: 8
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd8977083cf0ea30800000000000000
+      internalID: 4242668166556782071
       vertices: []
       indices: 
       edges: []

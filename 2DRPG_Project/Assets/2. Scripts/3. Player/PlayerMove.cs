@@ -28,6 +28,8 @@ namespace Main
         public Player_Attack_Defend player_Attack_Defend; //방어시 움직임 0
         public PlayerWeaponTrigger playerWeaponTrigger_Component; // disable 하기 위함 (행동이 트리거라서 도중에 다른 행동시 END이벤트함수 호출 안된다.)
 
+        public PlatformEffector2D platformEffector2d_Ground;// 로테이션 오프셋을 180도 바꾸기 위함
+
         //움직임 
         Vector2 dir; //벡터
         public float h; //좌우
@@ -40,6 +42,8 @@ namespace Main
         public bool isGround;
         public bool isDash;
         public bool isSitting;
+        public bool isGround_ToAble_UnderJump;//하단 점프 가능한 발판인지
+        
 
         //인트형 판단 
         public int sittingNum; //0 서 있기, 1 의자 앉아있기
@@ -131,6 +135,8 @@ namespace Main
 
         public void Jump_btn()
         {
+            UnderJump();
+
             if (jumpCount < 1 && !isSitting)
             {
                 //trigger 초기화
@@ -255,6 +261,18 @@ namespace Main
 
         }
 
+        //하단 점프 함수
+        public void UnderJump()
+        {
+            if (isGround_ToAble_UnderJump)
+            {
+                if (v < 0)
+                {
+                    print("야");
+                }
+            }
+        }
+
         //앉을 때 애니메이션 재생 함수 
         void SittingAnimCtrl()
         {
@@ -278,12 +296,13 @@ namespace Main
             if (!player_Attack_Defend.isDefense)
             {
                 h = Input.GetAxisRaw("Horizontal");
+                v = Input.GetAxisRaw("Vertical");
             }
             else
             {
                 h = 0;
             }
-
+            print(v);
             /*
             if (moveStick_Script.isMoblie)
             {
@@ -318,7 +337,6 @@ namespace Main
             DashTime();
 
             SittingAnimCtrl();
-
 
         }//update
     }//class
