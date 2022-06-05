@@ -39,7 +39,7 @@ namespace Main
         public void sittingStart()
         {
             //버튼 활성화
-            playerMove.sitting_btn.interactable = true;
+            playerMove.else_Act_btn.interactable = true;
             //조건 활성
             playerMove.isSitting = true;
             

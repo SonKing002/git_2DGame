@@ -44,8 +44,9 @@ namespace Main
             {
                 case "Ground":
                     playerMove.isGround = false;// 공중에 있는가
+                    
                     playerMove.isGround_ToAble_UnderJump = false; //발판에서 벗어나면 false
-
+                    
                     print("공중");
                     break;
             }

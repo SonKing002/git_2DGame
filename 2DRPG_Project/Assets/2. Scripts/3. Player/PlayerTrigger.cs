@@ -144,8 +144,9 @@ namespace Main
                     print("스테이지");
                     break;
                 case "Sitting":
-
-                    playerMove.sitting_btn.interactable = true;
+                    //의자에 다가옴
+                    playerMove.isChairFind = true;
+                    playerMove.else_Act_btn.interactable = true;
 
                     break;
 
@@ -159,6 +160,13 @@ namespace Main
                     isEnter = true;
                     break;
 
+                case "Ladder":
+                    print("사다리 닿음");
+                    //사다리 찾기 true
+                    playerMove.isLadderFind = true;
+
+                    playerMove.else_Act_btn.interactable = true;
+                    break;
 
             }
         }
@@ -204,13 +212,22 @@ namespace Main
                     print("스테이지");
                     break;
                 case "Sitting":
-
-                    playerMove.sitting_btn.interactable = false;
+                    //의자에서 벗어남
+                    playerMove.isChairFind = false;
+                    playerMove.else_Act_btn.interactable = false;
 
                     break;
 
                 case "Item":
                     isEnter = false;
+                    break;
+
+                case "Ladder":
+                    print("사다리 벗어남");
+                    //사다리 찾기 false
+                    playerMove.isLadderFind = false;
+
+                    playerMove.else_Act_btn.interactable = false;
                     break;
             }
         }

@@ -18,7 +18,7 @@ namespace Main
         
         public Button jump_btn;
         public Button dash_btn;
-        public Button sitting_btn;
+        public Button else_Act_btn;
         public Button basicAtt_btn;
         public Button shield_btn;
         public Button skillAtt1_btn;
@@ -41,10 +41,12 @@ namespace Main
         [HideInInspector]
         public bool isGround;
         public bool isDash;
+        public bool isChairFind; //의자에 접근
         public bool isSitting;
         public bool isGround_ToAble_UnderJump;//하단 점프 가능한 발판인지
-        public bool isStart_UnderJump;//하단점프 시작 = true //끝 = false  
-
+        public bool isStart_UnderJump;//하단점프 시작 = true //끝 = false 
+        public bool isLadderFind; //사다리에 접근
+        public bool isStartLadder; //사다리 사용
         //인트형 판단 
         public int sittingNum; //0 서 있기, 1 의자 앉아있기
 
@@ -133,28 +135,70 @@ namespace Main
             }
         }
 
-        public void Jump_btn()
+        //조건에 따라 움직임을 제한하는 함수
+        void MoveLimit()
         {
-            UnderJump();
-
-            if (jumpCount < 1 && !isSitting)
+            //방어 중에는 움직일 수 없다.
+            if (!player_Attack_Defend.isDefense)
             {
-                //trigger 초기화
-                player_Attack_Defend.attackCount = 0;
+                h = Input.GetAxisRaw("Horizontal");
+                v = Input.GetAxisRaw("Vertical");
+            }
+            else
+            {
+                h = 0;
+            }
 
-                //무기 콜라이더 꺼주기
-                playerWeaponTrigger_Component.enabled = false;
+            //사다리 오를 때는 좌우 움직일 수 없다. 
+            if (!isStartLadder)
+            {
+                h = Input.GetAxisRaw("Horizontal");
+            }
+            else
+            {
+                h = 0;
+            }
 
-                jumpCount++;
-
-                anim.SetTrigger("jump"); //점프모션 1번
-                anim_Effect.SetTrigger("Jump"); //점프이펙트
-                rig.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            //앉는 순간부터 움직일 수 없다.
+            if (!isSitting)
+            {
+                Move();
             }
         }
 
+        //점프 버튼을 눌렀을때 호출 함수
+        public void Jump_btn()
+        {
+            //아래 방향키를 누르면
+            if (v < 0)
+            {
+                //하단 점프 함수
+                UnderJump();
+            }
+            //이외 상황에서
+            else
+            {
+                if (jumpCount < 1 && !isSitting)
+                {
+                    //trigger 초기화
+                    player_Attack_Defend.attackCount = 0;
+
+                    //무기 콜라이더 꺼주기
+                    playerWeaponTrigger_Component.enabled = false;
+
+                    jumpCount++;
+
+                    anim.SetTrigger("jump"); //점프모션 1번
+                    anim_Effect.SetTrigger("Jump"); //점프이펙트
+                    rig.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                }
+            }
+        }
+
+        //업데이트 점프체크 함수
         void Jump()
         {
+            
             //공중이라면 == 떨어지거나 떠있거나
             if (!isGround)
             {//떠있는 동안의 루프 애니메이션
@@ -227,80 +271,102 @@ namespace Main
             }
         }
 
+        //다른 스크립트 일괄처리용 버튼 조작 컨트롤 함수
         public void interactableCtrl(bool temp)
         {
             //
             dash_btn.interactable       = temp;
             jump_btn.interactable       = temp;
             shield_btn.interactable     = temp;
-            sitting_btn.interactable    = temp;
+            else_Act_btn.interactable    = temp;
             skillAtt1_btn.interactable  = temp;
             skillAtt2_btn.interactable  = temp;
             basicAtt_btn.interactable   = temp;
-        }    
+        }
 
-        //버튼 호출
+        //Else버튼 호출함수
+        public void Else_Action_Ctrl_Btn()
+        {
+            //trigger가 의자를 찾았다면
+            if (isChairFind)
+            {
+                if (h == 0 && sittingNum == 0)
+                {
+                    //전부 비활성화
+                    interactableCtrl(false);
+
+                    //애니메이션 동작 앉기
+                    anim.SetTrigger("sitStart");
+                }
+                if (sittingNum == 1)
+                {
+                    //전부 비활성화
+                    interactableCtrl(false);
+
+                    //조건 비활성
+                    isSitting = false;
+                }
+
+                //OnClick_Sitting_Btn();
+            }
+            //trigger가 사다리를 찾았다면
+            if (isLadderFind)
+            {
+                OnClick_UseLadder_btn();
+            }
+        }
+
+        //"앉기" 버튼 호출함수
         public void OnClick_Sitting_Btn()
         {
-            if (h == 0 && sittingNum == 0)
-            {
-                //전부 비활성화
-                interactableCtrl(false);
-
-                //애니메이션 동작 앉기
-                anim.SetTrigger("sitStart");
-            }
-            if (sittingNum == 1)
-            {
-                //전부 비활성화
-                interactableCtrl(false);
-
-                //조건 비활성
-                isSitting = false;
-            }
+           
 
         }
 
-        //하단 점프 버튼호출 함수
+        //"하단 점프" 버튼호출 함수
         public void UnderJump() //점프키를 누를 때
         {
             //베이스 발판이 아닌 순간( true로 반환한다면 )
             if (isGround_ToAble_UnderJump)
             {
-                if (v < 0)//아래 키를 누를 때
-                {
-                    //초기화
-                    underJumpTimer = 0f;
+                //초기화
+                underJumpTimer = 0f;
 
-                    //제거
-                    platformEffector2d_Ground.colliderMask
-                        = platformEffector2d_Ground.colliderMask & ~(1 << LayerMask.NameToLayer("Player"));
+                //제거
+                platformEffector2d_Ground.colliderMask
+                    = platformEffector2d_Ground.colliderMask & ~(1 << LayerMask.NameToLayer("Player"));
 
-                    //하단 점프 시작
-                    isStart_UnderJump = true;
+                //하단 점프 시작
+                isStart_UnderJump = true;
 
-                    //확인용 print(LayerMask.NameToLayer("Player") + " 존재하는가"); //7번
-                }
+                //애니메이션
+                anim.SetTrigger("jump"); //점프모션 1번
+                print(LayerMask.NameToLayer("Player") + " 존재하는가"); //7번
             }
         }//하단 점프 호출함수
 
         //하단 점프 : 콜라이더 꺼진 이후의 시간 체크 
         void CheckTimerUnderJump()
         {
-            //시간 누적
-            underJumpTimer += Time.deltaTime;
-            tempJumpTimer = underJumpTimer;
-
-            //예시 (하드코딩)
-            if (tempJumpTimer >= 0.3f)
+            //하단 점프 시작할때
+            if (isStart_UnderJump)
             {
-                //추가
-                platformEffector2d_Ground.colliderMask |= 1 << LayerMask.NameToLayer("Player");
+                //시간 누적
+                underJumpTimer += Time.deltaTime;
+                tempJumpTimer = underJumpTimer;
+                print(underJumpTimer);
+                //예시 (하드코딩)
+                if (tempJumpTimer >= 0.4f)
+                {
+                    //추가
+                    platformEffector2d_Ground.colliderMask |= 1 << LayerMask.NameToLayer("Player");
 
-                //하단점프 끝
-                isStart_UnderJump = false;
+                    //하단점프 끝
+                    isStart_UnderJump = false;
+                }
             }
-        }
+        }//void CheckTimerUnderJump()
+
         //앉을 때 애니메이션 재생 함수 
         void SittingAnimCtrl()
         {
@@ -318,20 +384,57 @@ namespace Main
                 anim.SetBool("isSitting", false);//서 있는 상태
             }
         }
-        void Update()
+
+        //사다리 타는 버튼 호출함수
+        public void OnClick_UseLadder_btn()
         {
-            //방어 중에는 움직일 수 없다.
-            if (!player_Attack_Defend.isDefense)
+            //사다리를 찾았다면
+            if (isLadderFind)
             {
-                h = Input.GetAxisRaw("Horizontal");
-                v = Input.GetAxisRaw("Vertical");
+                //상하 키 아무거나 눌렀을 때
+                if (v != 0)
+                {
+                    //사다리 타기 시작
+                    isStartLadder = true;
+
+                    //Mask를 꺼준다.
+                    //제거
+                    platformEffector2d_Ground.colliderMask
+                        = platformEffector2d_Ground.colliderMask & ~(1 << LayerMask.NameToLayer("Player"));
+
+                    //물리 힘 상하
+                    rig.AddForce(Vector2.up * v, ForceMode2D.Impulse);
+
+                    //중력 끄기, 마찰 키우기
+                    rig.gravityScale = 0;
+                    rig.drag = 13f;
+                    rig.angularDrag = 13f;
+                }
             }
             else
             {
-                h = 0;
+                //사다리 타기 시작
+                isStartLadder = false;
+
+                //중력 끄기, 마찰 키우기
+                rig.gravityScale = 3;
+                rig.drag = 3f;
+                rig.angularDrag = 0.05f;
+
+                //물리 힘 상하
+                rig.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+
+                //mask 추가
+                platformEffector2d_Ground.colliderMask |= 1 << LayerMask.NameToLayer("Player");
             }
-            print(v + " 키보드 상하 누름");
-            /*
+        }
+
+        void Update()
+        {
+            //움직임 제한 함수
+            MoveLimit();
+
+            /* 모바일 가상 조이스틱용 컨트롤
             if (moveStick_Script.isMoblie)
             {
                 h = moveStick_Script.dir_x;
@@ -342,12 +445,8 @@ namespace Main
                 h = Input.GetAxisRaw("Horizontal");
             }
             */
-            if (!isSitting)
-            {
-                Move();
-            }
-            
 
+            
             //점프를 누르면 + 땅이 있을때
             if (Input.GetButtonDown("Jump") & jumpCount < 1)
             {
@@ -358,6 +457,7 @@ namespace Main
                 anim_Effect.SetTrigger("Jump");
                 rig.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             }
+
             Jump();
 
             print(jumpCount);
@@ -368,6 +468,8 @@ namespace Main
 
             //하단 점프 시작 후 체크
             CheckTimerUnderJump();
+
+            
         }//update
     }//class
 }//namespace

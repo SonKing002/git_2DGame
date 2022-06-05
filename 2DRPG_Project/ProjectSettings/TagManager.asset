@@ -22,6 +22,7 @@ TagManager:
   - ItemSpriteElse
   - Cloth
   - Sitting
+  - Ladder
   layers:
   - Default
   - TransparentFX

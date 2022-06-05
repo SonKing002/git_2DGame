@@ -6655,9 +6655,10 @@ GameObject:
   m_Component:
   - component: {fileID: 180345605}
   - component: {fileID: 180345604}
+  - component: {fileID: 180345606}
   m_Layer: 0
   m_Name: Ladder3
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6727,6 +6728,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &180345606
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180345603}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: -5.26}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.07, y: 5.53}
+  m_EdgeRadius: 0
 --- !u!1 &180353322
 GameObject:
   m_ObjectHideFlags: 0
@@ -10601,7 +10628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1437527946}
         m_TargetAssemblyTypeName: Main.PlayerMove, Assembly-CSharp
-        m_MethodName: OnClick_Sitting_Btn
+        m_MethodName: Else_Action_Ctrl_Btn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -45106,9 +45133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1181565552}
   - component: {fileID: 1181565551}
+  - component: {fileID: 1181565553}
   m_Layer: 0
   m_Name: Ladder2
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45178,6 +45206,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1181565553
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181565550}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: -3.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.07, y: 3.8}
+  m_EdgeRadius: 0
 --- !u!1 &1184888697
 GameObject:
   m_ObjectHideFlags: 0
@@ -54989,6 +55043,10 @@ PrefabInstance:
       propertyPath: basicAtt_btn
       value: 
       objectReference: {fileID: 1186813118}
+    - target: {fileID: 666126056454646458, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
+      propertyPath: else_Act_btn
+      value: 
+      objectReference: {fileID: 288512768}
     - target: {fileID: 666126056454646458, guid: 9b3907b369ef2ef4aba1f9b15d167cef, type: 3}
       propertyPath: skillAtt1_btn
       value: 
@@ -73536,9 +73594,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1993740398}
   - component: {fileID: 1993740397}
+  - component: {fileID: 1993740399}
   m_Layer: 0
   m_Name: Ladder1
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73608,6 +73667,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1993740399
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993740396}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: -2.79}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.07, y: 3.07}
+  m_EdgeRadius: 0
 --- !u!1 &1995203121
 GameObject:
   m_ObjectHideFlags: 0
