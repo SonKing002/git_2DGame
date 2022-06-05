@@ -33,8 +33,8 @@ namespace Main
         //움직임 
         Vector2 dir; //벡터
         public float h; //좌우
-        float timer, v;  //시간체크 , 좌우, 상하
-        public float timeLimit ,dashSpeed, moveMaxSpeed, jumpPower ; //대쉬 속도 ,최대 이동 속도, 점프력
+        float deshTimer, v, underJumpTimer, tempJumpTimer;  //시간체크 , 좌우, 상하
+        public float deshTimeLimit ,dashSpeed, moveMaxSpeed, jumpPower ; //대쉬 속도 ,최대 이동 속도, 점프력
         int jumpCount;
 
         //불형 판단
@@ -43,7 +43,7 @@ namespace Main
         public bool isDash;
         public bool isSitting;
         public bool isGround_ToAble_UnderJump;//하단 점프 가능한 발판인지
-        
+        public bool isStart_UnderJump;//하단점프 시작 = true //끝 = false  
 
         //인트형 판단 
         public int sittingNum; //0 서 있기, 1 의자 앉아있기
@@ -209,20 +209,20 @@ namespace Main
             if (isDash)
             {
                 //시간 재기
-                timer += Time.deltaTime;
-                float tempCheck = timer;
+                deshTimer += Time.deltaTime;
+                float tempCheck = deshTimer;
 
                 //애니메이션동작
                 anim.SetBool("isDash", true);
                 
 
                 //시간이 오버되면
-                if (tempCheck > timeLimit)
+                if (tempCheck > deshTimeLimit)
                 {
                     isDash = false;
                     //애니메이션 끝
                     anim.SetBool("isDash", false);
-                    timer = 0f;
+                    deshTimer = 0f;
                 }
             }
         }
@@ -261,18 +261,46 @@ namespace Main
 
         }
 
-        //하단 점프 함수
-        public void UnderJump()
+        //하단 점프 버튼호출 함수
+        public void UnderJump() //점프키를 누를 때
         {
+            //베이스 발판이 아닌 순간( true로 반환한다면 )
             if (isGround_ToAble_UnderJump)
             {
-                if (v < 0)
+                if (v < 0)//아래 키를 누를 때
                 {
-                    print("야");
+                    //초기화
+                    underJumpTimer = 0f;
+
+                    //제거
+                    platformEffector2d_Ground.colliderMask
+                        = platformEffector2d_Ground.colliderMask & ~(1 << LayerMask.NameToLayer("Player"));
+
+                    //하단 점프 시작
+                    isStart_UnderJump = true;
+
+                    //확인용 print(LayerMask.NameToLayer("Player") + " 존재하는가"); //7번
                 }
             }
-        }
+        }//하단 점프 호출함수
 
+        //하단 점프 : 콜라이더 꺼진 이후의 시간 체크 
+        void CheckTimerUnderJump()
+        {
+            //시간 누적
+            underJumpTimer += Time.deltaTime;
+            tempJumpTimer = underJumpTimer;
+
+            //예시 (하드코딩)
+            if (tempJumpTimer >= 0.3f)
+            {
+                //추가
+                platformEffector2d_Ground.colliderMask |= 1 << LayerMask.NameToLayer("Player");
+
+                //하단점프 끝
+                isStart_UnderJump = false;
+            }
+        }
         //앉을 때 애니메이션 재생 함수 
         void SittingAnimCtrl()
         {
@@ -302,7 +330,7 @@ namespace Main
             {
                 h = 0;
             }
-            print(v);
+            print(v + " 키보드 상하 누름");
             /*
             if (moveStick_Script.isMoblie)
             {
@@ -338,6 +366,8 @@ namespace Main
 
             SittingAnimCtrl();
 
+            //하단 점프 시작 후 체크
+            CheckTimerUnderJump();
         }//update
     }//class
 }//namespace
