@@ -146,6 +146,7 @@ namespace Main
                 case "Sitting":
                     //의자에 다가옴
                     playerMove.isChairFind = true;
+                    //버튼 활성화
                     playerMove.else_Act_btn.interactable = true;
 
                     break;
@@ -214,6 +215,7 @@ namespace Main
                 case "Sitting":
                     //의자에서 벗어남
                     playerMove.isChairFind = false;
+                    //버튼 비활성화
                     playerMove.else_Act_btn.interactable = false;
 
                     break;

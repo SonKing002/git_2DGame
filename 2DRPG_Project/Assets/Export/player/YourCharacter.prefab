@@ -4111,7 +4111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &666126056357581248
 Transform:
   m_ObjectHideFlags: 0
@@ -4918,7 +4918,7 @@ MonoBehaviour:
   moveStick_Script: {fileID: 0}
   jump_btn: {fileID: 0}
   dash_btn: {fileID: 0}
-  sitting_btn: {fileID: 0}
+  else_Act_btn: {fileID: 0}
   basicAtt_btn: {fileID: 0}
   shield_btn: {fileID: 0}
   skillAtt1_btn: {fileID: 0}
@@ -4926,14 +4926,20 @@ MonoBehaviour:
   anim_Effect: {fileID: 666126055958599773}
   player_Attack_Defend: {fileID: 666126056454646453}
   playerWeaponTrigger_Component: {fileID: 666126056357581255}
+  platformEffector2d_Ground: {fileID: 0}
   h: 0
-  timeLimit: 2
+  deshTimeLimit: 0
   dashSpeed: 10
   moveMaxSpeed: 7
   jumpPower: 15
   isGround: 0
   isDash: 0
+  isChairFind: 0
   isSitting: 0
+  isGround_ToAble_UnderJump: 0
+  isStart_UnderJump: 0
+  isLadderFind: 0
+  isStartLadder: 0
   sittingNum: 0
 --- !u!114 &1970620147665762675
 MonoBehaviour:
