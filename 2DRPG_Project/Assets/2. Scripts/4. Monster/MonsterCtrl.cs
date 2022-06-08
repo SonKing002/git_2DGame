@@ -104,8 +104,6 @@ namespace Main
 
         void Start()
         {
-            
-
             //초기화
             turnDir = 1;
 
@@ -132,7 +130,7 @@ namespace Main
         private void OnDrawGizmos()
         {
             //전체 기즈모
-            Gizmos.color = new Color(1,0.7f,1,0.4f);
+            Gizmos.color = new Color(1,0.7f,1,0.3f);
             Gizmos.DrawCube(regenCenterPosition,regenSize);
             
             if (debugMode)
