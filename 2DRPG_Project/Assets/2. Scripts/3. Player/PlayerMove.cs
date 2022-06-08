@@ -11,7 +11,8 @@ namespace Main
         
         //컴포넌트
         Rigidbody2D rig; //물리작용
-        Animator anim; //애니메이션 제어 
+        
+        public Animator anim; //애니메이션 제어 
 
         //다른 컴포넌트
         public StickLeverContrl moveStick_Script;
@@ -34,7 +35,7 @@ namespace Main
         Vector2 dir; //벡터
         public float h; //좌우
         float deshTimer, v, underJumpTimer, tempJumpTimer;  //시간체크 , 좌우, 상하
-        public float deshTimeLimit ,dashSpeed, moveMaxSpeed, jumpPower ; //대쉬 속도 ,최대 이동 속도, 점프력
+        public float deshTimeLimit, dashSpeed, h_MoveMaxSpeed, jumpPower, v_MoveMaxSpeed; //대쉬 속도 ,최대 이동 속도, 점프력
         int jumpCount;
 
         //불형 판단
@@ -57,10 +58,10 @@ namespace Main
             jumpCount = 0;
 
             //초기화
+            isStartLadder = false;
             isSitting = false;
-            is_Ground_Collider_Enable = true;
+            Gruond_ColliderMask_Ctrl(true);
         }
-
 
         void Move()
         {
@@ -89,9 +90,9 @@ namespace Main
                     anim.SetBool("isWalk", true);
 
                     //최대 속도
-                    if (rig.velocity.x > moveMaxSpeed)
+                    if (rig.velocity.x > h_MoveMaxSpeed)
                     {
-                        rig.velocity = new Vector2(moveMaxSpeed, rig.velocity.y);
+                        rig.velocity = new Vector2(h_MoveMaxSpeed, rig.velocity.y);
                     }
                 }
                 else //대쉬일 때
@@ -120,9 +121,9 @@ namespace Main
                     anim.SetBool("isWalk", true);
 
                     //최대 속도
-                    if (rig.velocity.x < -moveMaxSpeed)
+                    if (rig.velocity.x < -h_MoveMaxSpeed)
                     {
-                        rig.velocity = new Vector2(-moveMaxSpeed, rig.velocity.y);
+                        rig.velocity = new Vector2(-h_MoveMaxSpeed, rig.velocity.y);
                     }
                 }
                 else //대쉬일 때
@@ -139,6 +140,12 @@ namespace Main
         //조건에 따라 움직임을 제한하는 함수
         void MoveLimit()
         {
+            //앉는 순간부터 움직일 수 없다.
+            if (!isSitting)
+            {
+                Move();
+            }
+
             //방어 중에는 움직일 수 없다.
             if (!player_Attack_Defend.isDefense)
             {
@@ -153,23 +160,71 @@ namespace Main
             //사다리 오를 때는 좌우 움직일 수 없다. 
             if (!isStartLadder)
             {
-                h = Input.GetAxisRaw("Horizontal");
+
+                //중력, 마찰력 설정
+                rig.gravityScale = 3;
+                rig.drag = 3f;
+                rig.angularDrag = 0.05f;
+
+                //사다리위 애니메이션 끝
+                anim.SetBool("isOnLadder", false);
             }
             else
             {
+                // 좌우 고정
                 h = 0;
-            }
 
-            //앉는 순간부터 움직일 수 없다.
-            if (!isSitting)
-            {
-                Move();
+                //중력,마찰력 설정
+                rig.gravityScale = 0;
+                rig.drag = 13f;
+                rig.angularDrag = 13f;
+
+                //위 아래
+                rig.AddForce(Vector2.up * v, ForceMode2D.Impulse);
+
+                //사다리 위 애니메이션
+                anim.SetBool("isOnLadder", true);
+
+                //상하 방향키에 따라 최대 속도 제한
+                switch (v)
+                {
+                    case -1://음수 방향일 때 (아래로 움직일 때)
+                        if (rig.velocity.y <= -v_MoveMaxSpeed)
+                        {
+                            rig.velocity = new Vector2(rig.velocity.x , -v_MoveMaxSpeed );
+                        }
+
+                        //사다리 움직임 애니메이션
+                        anim.SetBool("isMoveOnLadder", true);
+
+                        break;
+                    case 0:// 멈춰있을 때
+
+                        //사다리 움직임 애니메이션
+                        anim.SetBool("isMoveOnLadder", false);
+
+                        break;
+
+                    case 1:// 양수 방향일 때 (위로 움직일 때)
+                        if (rig.velocity.y >= v_MoveMaxSpeed)
+                        {
+                            rig.velocity = new Vector2(rig.velocity.x, v_MoveMaxSpeed);
+                        }
+
+                        //사다리 움직임 애니메이션
+                        anim.SetBool("isMoveOnLadder", true);
+
+                        break;
+                }
             }
-        }
+        }//void MoveLimit();
 
         //점프 버튼을 눌렀을때 호출 함수
         public void Jump_btn()
         {
+            //사다리 타기 중지
+            isStartLadder = false;
+
             //아래 방향키를 누르면
             if (v < 0)
             {
@@ -197,9 +252,8 @@ namespace Main
         }
 
         //업데이트 점프체크 함수
-        void Jump()
+        void CheckJump()
         {
-            
             //공중이라면 == 떨어지거나 떠있거나
             if (!isGround)
             {//떠있는 동안의 루프 애니메이션
@@ -228,7 +282,7 @@ namespace Main
                 underJumpTimer = 0f;
 
                 //발판 collider mask꺼짐
-                is_Ground_Collider_Enable = false;
+                Gruond_ColliderMask_Ctrl(false);
 
                 //하단 점프 시작
                 isStart_UnderJump = true;
@@ -253,7 +307,7 @@ namespace Main
                 if (tempJumpTimer >= 0.4f)
                 {
                     //mask 추가
-                    is_Ground_Collider_Enable = true;
+                    Gruond_ColliderMask_Ctrl(true);
 
                     //하단점프 끝
                     isStart_UnderJump = false;
@@ -317,7 +371,7 @@ namespace Main
         }
 
         //포인터 호출함수 : 사다리 타기 시작
-        public void OnClick_UseLadderPointerDown_Btn()
+        public void OnClick_UseLadder_Btn()
         {
             //사다리를 찾았다면
             if (isLadderFind)
@@ -325,43 +379,23 @@ namespace Main
                 //상하 키 아무거나 눌렀을 때
                 if (v != 0)
                 {
+                    anim.SetTrigger("onLadder");
+
                     //사다리 타기 시작
                     isStartLadder = true;
 
                     //Mask를 꺼준다.
-                    is_Ground_Collider_Enable = false;
-
-                    //물리 힘 상하
-                    rig.AddForce(Vector2.up * v, ForceMode2D.Impulse);
-
-                    //중력 끄기, 마찰 키우기
-                    rig.gravityScale = 0;
-                    rig.drag = 13f;
-                    rig.angularDrag = 13f;
+                    Gruond_ColliderMask_Ctrl(false);
                 }
             }
         }
-        //포인터 호출함수 : 사다리 타기 끝
-        public void OnClick_UseLadderPointerUp_Btn()
-        {
-            //사다리 타기 시작
-            isStartLadder = false;
-
-            //중력 끄기, 마찰 키우기
-            rig.gravityScale = 3;
-            rig.drag = 3f;
-            rig.angularDrag = 0.05f;
-
-            //물리 힘 상하
-            rig.AddForce(Vector2.right * h, ForceMode2D.Impulse);
-
-            //mask 추가
-            is_Ground_Collider_Enable = true;
-        }
 
         //mask 컨트롤 함수
-        void Gruond_ColliderMask_Ctrl()
+        public void Gruond_ColliderMask_Ctrl(bool tempBool)
         {
+            //불형 받아오기 함수
+            is_Ground_Collider_Enable = tempBool;
+
             //bool형 상태에 따라 동일 처리
             if (is_Ground_Collider_Enable)
             {
@@ -410,7 +444,7 @@ namespace Main
         //"앉기" 버튼 호출함수
         public void OnClick_Sitting_Btn()
         {
-            //trigger에 닿으면
+            //trigger에 닿으면 : 의자 사이즈 주의
             if (isChairFind)
             {
                 //서 있다면
@@ -421,40 +455,26 @@ namespace Main
 
                     //애니메이션 동작 앉기
                     anim.SetTrigger("sitStart");
+                    
                 }
-                else
+                if(isSitting)
                 {
                     //전부 비활성화
                     interactableCtrl(false);
 
-                    //조건 비활성
+                    anim.SetBool("isSitting", false);//서 있는 상태
+
                     isSitting = false;
                 }
             }
         }
 
-        //앉을 때 애니메이션 재생 함수 
-        void SittingAnimCtrl()
-        {
-            //애니메이션 컨트롤을 위함
-            if (isSitting)//trigger 이벤트 함수에서 isSitting true /false
-            {
-                //앉아있는 상태
-                anim.SetBool("isSitting", true);//앉아있는 상태 
-            }
-            else
-            {
-                anim.SetBool("isSitting", false);//서 있는 상태
-            }
-        }
-
-      
-
         void Update()
         {
+
             //움직임 제한 함수
             MoveLimit();
-            
+
             /* 모바일 가상 조이스틱용 컨트롤
             if (moveStick_Script.isMoblie)
             {
@@ -478,19 +498,15 @@ namespace Main
                 rig.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             }
 
-            Jump();
-
-            print(jumpCount);
+            CheckJump();
 
             DashTime();
-
-            SittingAnimCtrl();
 
             //하단 점프 시작 후 체크
             CheckTimerUnderJump();
 
             //공중 발판의 collider제어함수: 충돌마스크Player (추가/제거)
-            Gruond_ColliderMask_Ctrl();
+            //Gruond_ColliderMask_Ctrl();
 
         }//update
     }//class

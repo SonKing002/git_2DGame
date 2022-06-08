@@ -723,13 +723,23 @@ MonoBehaviour:
   collider2d: {fileID: 8659570678144070380}
   monsterColl: {fileID: 5258527014411933037}
   hitbox_Direction: {fileID: 8659570678229558410}
+  objects_InChildren:
+  - {fileID: 8659570678229558411}
+  - {fileID: 8659570679031822034}
+  - {fileID: 2832810878717232964}
   emotion: {fileID: 2832810879157457907}
   isChanged: 0
   turnDir: 1
   isDead: 0
+  isAble_ToRegen: 0
   speed: 1
   maxSpeed: 3
-  ground_Position: {x: 1, y: -1, z: 0}
+  ground_Position: {x: 1, y: -0.1, z: 0}
+  regenTimer: 0
+  tempRegenTime: 0
+  checkRegenTime: 3
+  regenCenterPosition: {x: 6.47, y: -1.66}
+  regenSize: {x: 1.68, y: 2.07}
   hp: 100
   hp_txt: {fileID: 8659570678056944272}
   name_txt: {fileID: 8659570677963088685}

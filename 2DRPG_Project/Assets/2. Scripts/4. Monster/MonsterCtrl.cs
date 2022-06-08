@@ -28,6 +28,7 @@ namespace Main
         public CapsuleCollider2D collider2d;
         public MonsterHitBoxColl monsterColl; //히트박스 체크용
         public Transform hitbox_Direction;// 방향전환시 히트박스 위치 수정용
+        public GameObject[] objects_InChildren = new GameObject[3];
 
         public Animator emotion;
 
@@ -35,10 +36,13 @@ namespace Main
         public bool isChanged; //땅인지 체크
         public int turnDir; //-1 0 1 왼쪽 멈춤 오른쪽
         public bool isDead; //죽으면 모든 움직임 통제
+        public bool isAble_ToRegen; //리젠 가능 여부
 
         //임의 보정값
         public float speed, maxSpeed; //속도 , 최대속도
         public Vector3 ground_Position; //위치 조정
+        public float regenTimer,tempRegenTime, checkRegenTime; //원본 리젠, 검사용 리젠, 객체마다 수정 리젠
+        public Vector2 regenCenterPosition, regenSize;// 리젠위치 기즈모
 
         //임시
         public float hp;
@@ -100,23 +104,14 @@ namespace Main
 
         void Start()
         {
-            /* public으로 inspector에서 직접 연결하는 것이 덜 무겁다
-            //할당
-            //rig = GetComponent<Rigidbody2D>(); //움직임 제어
-            //sr = GetComponent<SpriteRenderer>(); //색 알파값 서서히 변하게 연출, 좌우 반전 간편하게 사용
-            //hpBar = GetComponentInChildren<Slider>(); //하위 오브젝트의 슬라이더
-            //anim = GetComponent<Animator>(); //애니메이션 제어
-            //collider2d = GetComponent<CapsuleCollider2D>(); //죽은 이후에 걸리적 거리지 않도록 꺼주기 위해 가져옴
-
-            //find 할당
-            //player = FindObjectOfType<PlayerMove>().transform; //플래이어 정보
-            //monsterColl = FindObjectOfType<MonsterColl>();
-            */
-
-            ground_Position = new Vector3(1, -1, 0); //보정
+            
 
             //초기화
             turnDir = 1;
+
+            //리젠 위치
+            regenCenterPosition = transform.position;
+            regenSize = new Vector2(1.5f, 2f);
 
             //임시
             hp = 100;
@@ -136,6 +131,10 @@ namespace Main
         //시야각 기즈모 함수
         private void OnDrawGizmos()
         {
+            //전체 기즈모
+            Gizmos.color = new Color(1,0.7f,1,0.4f);
+            Gizmos.DrawCube(regenCenterPosition,regenSize);
+            
             if (debugMode)
             {
                 horizontalView_HalfAngle = horizontalView_Angle * 0.5f;
@@ -180,7 +179,6 @@ namespace Main
 
                 if (angle <= horizontalView_HalfAngle)// 범위 내 내적이 들어와 있다면 == 시야각 내에 존재
                 {
-
                     //내 위치, 적 방향, 반지름 크기, 선별할 장애물 마스크
                     RaycastHit2D rayHitedTarget = Physics2D.Raycast(originPos, dir, viewRadius, obstacleMask);
 
@@ -324,7 +322,17 @@ namespace Main
             switch (turnDir)
             {
                 case -1:
-                    ground_Position = new Vector3(-1, -1, 0); // 레이케스트 위치 보정
+                    //양수일 때
+                    if (ground_Position.x > 0)
+                    {
+                        //방향 양수방향으로 수정
+                        ground_Position = new Vector3(ground_Position.x * -1, ground_Position.y, 0); // 레이케이트 위치 보정
+                    }
+                    else
+                    {
+                        ground_Position = new Vector3(ground_Position.x, ground_Position.y, 0); // 레이케이트 위치 보정
+                    }
+                    
                     anim.SetBool("isWalk", true); //애니메이션
                     sr.flipX = true; //이미지 뒤집기
 
@@ -337,7 +345,18 @@ namespace Main
                     z_viewRotate = Z_turn_View(turnDir, z_viewRotate); //시야각 방향전환시 
                     break;
                 case 1:
-                    ground_Position = new Vector3(1, -1, 0); // 레이케이트 위치 보정
+                    //음수일 때
+                    if (ground_Position.x < 0)
+                    {
+                        //방향 양수방향으로 수정
+                        ground_Position = new Vector3(ground_Position.x * -1, ground_Position.y, 0); // 레이케이트 위치 보정
+                    }
+                    else
+                    {
+                        ground_Position = new Vector3(ground_Position.x, ground_Position.y, 0); // 레이케이트 위치 보정
+                    }
+                    
+
                     anim.SetBool("isWalk", true); //애니메이션 활성화
                     sr.flipX = false;//이미지 뒤집기
 
@@ -443,7 +462,7 @@ namespace Main
                     //공격주기 = 시간 초
                     attackTimer += Time.deltaTime;
                 }
-                
+
                 //진짜 사용할 검사용 변수에 대입
                 temp_TimeCheck = attackTimer;
 
@@ -460,7 +479,7 @@ namespace Main
                         Attack();
                         break;
                     case StateMachine.Damaged: //피격 상태
-                                             //캐릭터로부터 SendMessage를 통해 호출
+                                               //캐릭터로부터 SendMessage를 통해 호출
                         break;
                     case StateMachine.Death: //죽음 상태
                                              //애니메이션이 끝날때 이벤트함수로 호출
@@ -471,45 +490,13 @@ namespace Main
                 //Act_Distance();
 
             }//if(!isDead) 살아있다면
+            else //죽었다면
+            {
+                //리젠함수
+                Regeneration();
+            }
         }//update
 
-        //거리에 따른 유항상태 제어 함수
-        /*
-        void Act_Distance()
-        {
-
-            print("순찰거리");
-            //순찰상태
-            state = StateMachine.Patron;
-
-            //공격상태
-            state = StateMachine.Attack;
-
-            //거리에 따른 조건
-            if (distance < fallow_Distance) //공격거리
-            {
-                print("공격거리");
-
-                //공격상태
-                state = StateMachine.Attack;
-
-            }
-            else if (fallow_Distance <= distance && distance < patrol_Distance) //추격거리
-            {
-
-                if (player)
-                    //추적상태
-                    state = StateMachine.Fallow;
-            }
-            else if (fallow_Distance <= distance) //순찰거리
-            {
-                print("순찰거리");
-                //순찰상태
-                state = StateMachine.Patron;
-            }
-            
-        }
-        */
 
         //순찰 함수
         void Patron()
@@ -690,24 +677,83 @@ namespace Main
         }
 
         //에니메이션 이벤트함수에서 호출
-        void Death()
+        void DeathStart()
         {
             //콜라이더 끄기
             collider2d.enabled = false;
             //리지드 바디 끄기
             rig.simulated = false;
-
-            //사라지다가 삭제
-            sr.color = Vector4.Lerp(sr.color, new Color(sr.color.r, sr.color.g, sr.color.b, 0f), 1f);
-
-            if (sr.color.a <= 0.3f)
+        }
+        void DeathEnd()
+        {
+            //관련 비활성화
+            foreach (var item in objects_InChildren)
             {
-                anim.enabled = false;
-
-                //관련 파괴
-                Destroy(gameObject);
+                item.SetActive(false);
             }
+
+            sr.color = new Color(1f, 1f, 1f, 0f);
+            anim.enabled = false;
         }
 
+        //몬스터 리젠 초기화 함수
+        void Regeneration()
+        {
+            if (isDead)
+            {
+                //시간재기
+                regenTimer += Time.deltaTime;
+                tempRegenTime = regenTimer;
+
+                //리젠 시간 된다면
+                if (tempRegenTime >= checkRegenTime)
+                {
+                    //리젠 가능 true
+                    isAble_ToRegen = true;
+                }
+            }
+
+            if (isAble_ToRegen)
+            {
+                //몬스터 활성화
+                gameObject.SetActive(true);
+
+                //위치 초기화
+                transform.position = regenCenterPosition;
+
+                sr.color= new Color(1f,1f,1f,1f);
+
+                //관련 활성화
+                foreach (var item in objects_InChildren)
+                {
+                    item.SetActive(true);
+                }
+
+                //콜라이더 활성화
+                collider2d.enabled = true;
+
+                //리지드 바디 활성화
+                rig.simulated = true;
+
+                //애니메이션 활성화
+                anim.enabled = true;
+
+
+                //초기화
+                hp = 100;
+                hp_txt.text = hp + " / " + 100; //체력 표시
+                hpBar.value = hp * 0.01f;   //체력바 표시
+
+                regenTimer = 0f;
+                tempRegenTime = 0f;
+ 
+                isAble_ToRegen = false;
+                isDead = false;
+
+                anim.SetBool("isWalk", false);
+
+                state = StateMachine.Patron;
+            }
+        }
     }//class
 }//namespace

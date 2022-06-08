@@ -228,8 +228,10 @@ namespace Main
                     print("사다리 벗어남");
                     //사다리 찾기 false
                     playerMove.isLadderFind = false;
+                    playerMove.isStartLadder = false;
 
-                    playerMove.else_Act_btn.interactable = false;
+                    //mask 추가
+                    playerMove.Gruond_ColliderMask_Ctrl(true);
                     break;
             }
         }

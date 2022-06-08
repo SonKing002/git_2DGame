@@ -40,9 +40,12 @@ namespace Main
         {
             //버튼 활성화
             playerMove.else_Act_btn.interactable = true;
-            //조건 활성
             playerMove.isSitting = true;
-            
+
+            //앉아있는 상태
+            playerMove.anim.SetBool("isSitting", true);//앉아있는 상태 
+            //조건 활성
+            //playerMove.isSitting = true;
         }
 
         public void sittingEnd()
@@ -50,7 +53,7 @@ namespace Main
             //버튼 재활성화
             playerMove.interactableCtrl(true);
             //앉기 버튼 비활성화 
-            //playerMove.sitting_btn.interactable = false;
+            //playerMove.isSitting = false;
             
         }
     }//class

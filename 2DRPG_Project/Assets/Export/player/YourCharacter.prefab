@@ -4915,6 +4915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d084672c8dfbcb4f988e6d8854afe94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 666126056401731427}
   moveStick_Script: {fileID: 0}
   jump_btn: {fileID: 0}
   dash_btn: {fileID: 0}
@@ -4928,10 +4929,11 @@ MonoBehaviour:
   playerWeaponTrigger_Component: {fileID: 666126056357581255}
   platformEffector2d_Ground: {fileID: 0}
   h: 0
-  deshTimeLimit: 0
+  deshTimeLimit: 1
   dashSpeed: 10
-  moveMaxSpeed: 7
+  h_MoveMaxSpeed: 5
   jumpPower: 15
+  v_MoveMaxSpeed: 3
   isGround: 0
   isDash: 0
   isChairFind: 0
@@ -4940,7 +4942,7 @@ MonoBehaviour:
   isStart_UnderJump: 0
   isLadderFind: 0
   isStartLadder: 0
-  sittingNum: 0
+  is_Ground_Collider_Enable: 0
 --- !u!114 &1970620147665762675
 MonoBehaviour:
   m_ObjectHideFlags: 0
