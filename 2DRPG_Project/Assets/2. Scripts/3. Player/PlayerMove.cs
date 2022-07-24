@@ -49,7 +49,8 @@ namespace Main
         public bool isLadderFind; //사다리에 접근
         public bool isStartLadder; //사다리 사용
         public bool is_Ground_Collider_Enable; //update에서 한번에 처리 (하단점프, 사다리 조건)
-
+        public bool isUsePotal; //다음 맵으로 이동true/false
+        
         void Start()
         {
             //할당
@@ -400,13 +401,14 @@ namespace Main
             if (is_Ground_Collider_Enable)
             {
                 //mask 추가
-                platformEffector2d_Ground.colliderMask |= 1 << LayerMask.NameToLayer("Player");
+                platformEffector2d_Ground.colliderMask |= 1 << LayerMask.NameToLayer("Player"); 
+                //player과 합집합(OR 추가)
             }
-            else
+            else//false
             {
                 //mask 제거
-                platformEffector2d_Ground.colliderMask
-                    = platformEffector2d_Ground.colliderMask & ~(1 << LayerMask.NameToLayer("Player"));
+                platformEffector2d_Ground.colliderMask &= ~ (1 << LayerMask.NameToLayer("Player"));
+                //player 빼고(NOT) == 전체 교집합(AND 추가)
             }
         }//Ground_ColliderMask_Ctrl();
 
@@ -467,6 +469,11 @@ namespace Main
                     isSitting = false;
                 }
             }
+        }
+
+        void IsUsePotal()
+        { 
+            
         }
 
         void Update()

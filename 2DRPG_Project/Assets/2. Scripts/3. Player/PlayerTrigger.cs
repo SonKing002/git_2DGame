@@ -169,6 +169,10 @@ namespace Main
                     playerMove.else_Act_btn.interactable = true;
                     break;
 
+                case "Potal":
+                    //다음 맵 이동
+                    playerMove.isUsePotal = true;
+                    break;
             }
         }
 
@@ -232,6 +236,11 @@ namespace Main
 
                     //mask 추가
                     playerMove.Gruond_ColliderMask_Ctrl(true);
+                    break;
+
+                case "Potal":
+                    //다음 맵 이동
+                    playerMove.isUsePotal = true;
                     break;
             }
         }
