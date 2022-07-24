@@ -23,6 +23,7 @@ TagManager:
   - Cloth
   - Sitting
   - Ladder
+  - Potal
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - miniCam
   - Player
   - Enemy
-  - 
+  - Potal
   - 
   - 
   - 

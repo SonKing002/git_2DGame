@@ -471,10 +471,6 @@ namespace Main
             }
         }
 
-        void IsUsePotal()
-        { 
-            
-        }
 
         void Update()
         {
